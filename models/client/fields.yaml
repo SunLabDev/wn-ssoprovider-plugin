@@ -14,4 +14,5 @@ fields:
 
     secret:
         label: sunlab.ssoprovider::lang.fields.secret
+        type: sensitive
         disabled: true
