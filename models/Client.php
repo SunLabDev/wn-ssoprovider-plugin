@@ -1,6 +1,7 @@
 <?php namespace SunLab\SSOProvider\Models;
 
 use Model;
+use Str;
 
 /**
  * Client Model
@@ -63,4 +64,14 @@ class Client extends Model
     public $belongsToMany = [
         'sunlab_sso_authorizations' => \Winter\User\Models\User::class
     ];
+
+    /**
+     * Auto-Generate secret if empty
+     */
+    public function beforeSave()
+    {
+        if (!$this->secret) {
+            $this->secret = Str::random(64);
+        }
+    }
 }
