@@ -28,7 +28,10 @@ class Client extends Model
     /**
      * @var array Validation rules for attributes
      */
-    public $rules = [];
+    public $rules = [
+        'name' => 'required',
+        'callback_url' => 'required|url'
+    ];
 
     /**
      * @var array Attributes to be cast to native types
