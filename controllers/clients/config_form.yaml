@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Client
+
+# Model Form Field configuration
+form: $/sunlab/ssoprovider/models/client/fields.yaml
+
+# Model Class name
+modelClass: SunLab\SSOProvider\Models\Client
+
+# Default redirect location
+defaultRedirect: sunlab/ssoprovider/clients
+
+# Create page
+create:
+    title: backend::lang.form.create_title
+    redirect: sunlab/ssoprovider/clients/update/:id
+    redirectClose: sunlab/ssoprovider/clients
+
+# Update page
+update:
+    title: backend::lang.form.update_title
+    redirect: sunlab/ssoprovider/clients
+    redirectClose: sunlab/ssoprovider/clients
+
+# Preview page
+preview:
+    title: backend::lang.form.preview_title

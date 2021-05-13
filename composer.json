@@ -1,0 +1,28 @@
+{
+    "name": "sunlab/wn-ssoprovider-plugin",
+    "type": "winter-plugin",
+    "description": "SSO Provider plugin for Winter CMS",
+    "homepage": "https://github.com/SunLabDev/oc-ssoprovider-plugin",
+    "keywords": ["winter cms", "winter", "plugin", "sso", "provider", "single sign on"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Romain 'Maz' BILLOIR",
+            "email": "contact@maz.digital",
+            "role": "Original Author"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/SunLabDev/wn-ssoprovider-plugin/issues",
+        "source": "https://github.com/SunLabDev/wn-ssoprovider-plugin"
+    },
+    "require": {
+        "php": ">=7.0",
+        "composer/installers": "~1.0",
+        "firebase/php-jwt": "^5.2"
+    },
+    "extra": {
+        "installer-name": "ssoprovider"
+    }
+}
+

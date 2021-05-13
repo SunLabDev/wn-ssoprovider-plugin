@@ -1,0 +1,5 @@
+1.0.1:
+    - First version of SSOProvider
+    - create_clients_table.php
+1.0.2:
+    - create_client_user_table.php
