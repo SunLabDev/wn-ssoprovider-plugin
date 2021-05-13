@@ -53,6 +53,7 @@ class Plugin extends PluginBase
     {
         return [
             \SunLab\SSOProvider\Components\LoginPopup::class => 'SSOLoginPopup',
+            \SunLab\SSOProvider\Components\AuthorizedClients::class => 'SSOAuthorizedClients',
         ];
     }
 
