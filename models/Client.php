@@ -62,7 +62,7 @@ class Client extends Model
      * @var array Relations
      */
     public $belongsToMany = [
-        'sunlab_sso_authorizations' => \Winter\User\Models\User::class
+        'sunlab_sso_authorizations' => [\Winter\User\Models\User::class, 'table' => 'sunlab_ssoprovider_client_user'],
     ];
 
     /**
