@@ -43,6 +43,11 @@ class LoginPopup extends ComponentBase
         }
     }
 
+    public function onRun()
+    {
+        $this->addCss('components/loginpopup/style.css');
+    }
+
     public function onAccept()
     {
         $this->user->sunlab_sso_authorizations()->attach($this->client);
