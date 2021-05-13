@@ -1,4 +1,4 @@
-{% if user %}
+{% if __SELF__.user %}
     <h4>{{ __SELF__.client.name }} wants to access your data.</h4>
     <p>Login and Email will be shared.</p>
     <button data-request="{{__SELF__}}::onAccept" data-request-redirect="{{ __SELF__.callbackWithToken }}">Accept</button>

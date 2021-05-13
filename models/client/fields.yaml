@@ -12,6 +12,6 @@ fields:
     callback_url:
         label: sunlab.ssoprovider::lang.fields.callback_url
 
-    token:
-        label: sunlab.ssoprovider::lang.fields.token
+    secret:
+        label: sunlab.ssoprovider::lang.fields.secret
         disabled: true

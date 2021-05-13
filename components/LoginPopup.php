@@ -8,7 +8,7 @@ use Firebase\JWT\JWT;
 
 class LoginPopup extends ComponentBase
 {
-    const SECONDS_VALID = 3600;
+    const SECONDS_VALID = 90;
 
     public $client;
     public $user;
@@ -18,7 +18,7 @@ class LoginPopup extends ComponentBase
     {
         // Search for a SSO Client corresponding to the identifier
         $this->client = Client::query()
-            ->where('identifier', $this->property('token'))
+            ->where('name', $this->property('identifier'))
             ->firstOrFail();
 
         // Abort if not a valid client
@@ -30,7 +30,6 @@ class LoginPopup extends ComponentBase
             if ($this->user->authorizeSSO($this->client)) {
                 return $this->returnToken();
             }
-
             $token = $this->getToken();
             $this->callbackWithToken = $this->client->callback_url . '/' . $token;
         } else {
@@ -58,9 +57,9 @@ class LoginPopup extends ComponentBase
     public function defineProperties()
     {
         return [
-            'token' => [
-                'title' => 'token',
-                'default' => '{{ :token }}',
+            'identifier' => [
+                'title' => 'identifier',
+                'default' => '{{ :identifier }}',
                 'type' => 'string',
             ]
         ];
