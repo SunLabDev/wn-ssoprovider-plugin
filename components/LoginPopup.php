@@ -17,8 +17,10 @@ class LoginPopup extends ComponentBase
     public function init()
     {
         // Search for a SSO Client corresponding to the identifier
+        $encodedName = $this->property('identifier');
+        $identifier = base64_decode($encodedName);
         $this->client = Client::query()
-            ->where('name', $this->property('identifier'))
+            ->where('name', $identifier)
             ->firstOrFail();
 
         // Abort if not a valid client
