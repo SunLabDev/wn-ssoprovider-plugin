@@ -15,7 +15,7 @@ class CreateClientsTable extends Migration
             $table->string('name');
             $table->string('domain');
             $table->string('callback_url');
-            $table->string('secret')->nullable();
+            $table->string('secret');
         });
     }
 
