@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.css');
+
+.sso_login_form * {
+	box-sizing: border-box;
+}
+
+.sso_login_form {
+	min-height: 100vh;
+	background: rgb(228, 233, 234);
+	font-size: 1em;
+	display: flex;
+	font-family: 'Roboto', sans-serif;
+	color: #444444;
+}
+
+.row {
+	width: clamp(350px, 50%, 450px);
+	margin: 0 auto;
+	padding: 1em;
+	background: white;
+	align-self: center;
+	border-radius: 0.3em;
+	box-shadow: 0px 2px 0 hsl(190deg 12% 75% / 25%), 0 0 1em #00000029;
+	border: 1px solid hsl(190deg 12% 80%);
+}
+
+.form-group+* {
+	margin-top: 0.5em;
+}
+
+.form-group+button {
+	margin-top: 1em;
+}
+
+h3 {
+	text-align: center;
+	font-size: 1.5em;
+	color: #222222;
+}
+
+label {
+	margin-bottom: 0.5em;
+	display: block;
+}
+
+input {
+	height: auto;
+	width: 100%;
+	padding: 1.3em;
+	flex-wrap: 1;
+	border: 2px solid hsl(190deg 12% 60%);
+	line-height: 1.5;
+	outline: 2px auto transparent;
+	transition: 0.2s ease-in-out;
+}
+
+input:focus,
+input:focus-visible {
+	outline-color: hsla(190deg 12% 55% / 75%);
+}
+
+input:invalid {
+	outline-color: hsl(0deg 90% 60%);
+}
+
+button {
+	border: none;
+	background: hsl(200deg 70% 50%);
+	box-shadow: 0 0.2em 0 hsl(200deg 70% 45%);
+	padding: 1em 2em;
+	border-radius: 0.5em;
+	color: white;
+	font-weight: 500;
+	margin-top: 2em;
+	transition: 0.2s ease-in-out;
+}
+
+button:hover,
+button:focus {
+	background: hsl(200deg 70% 45%);
+	box-shadow: 0 0.2em 0 hsl(200deg 70% 40%);
+}
+
+button:active {
+	background: hsl(200deg 70% 40%);
+	box-shadow: 0 0.2em 0 hsl(200deg 70% 35%);
+}
