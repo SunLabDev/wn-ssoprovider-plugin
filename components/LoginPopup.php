@@ -45,7 +45,7 @@ class LoginPopup extends ComponentBase
 
     public function onRun()
     {
-        $this->addCss('components/loginpopup/style.css');
+	$this->addCss('components/loginpopup/assets/css/style.css');
     }
 
     public function onAccept()
