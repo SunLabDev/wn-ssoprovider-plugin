@@ -1,0 +1,27 @@
+<div id="sso_clients_issuer">
+    <form data-request="onGetSecret" data-request-validate data-request-flash>
+        <div class="form-group">
+            <label for="clientName">Name</label>
+            <input
+                name="name"
+                type="text"
+                class="form-control"
+                id="clientName"
+                placeholder="Name of the website"/>
+            <div data-validate-for="name"></div>
+        </div>
+
+        <div class="form-group">
+            <label for="callback_url">Callback URL</label>
+            <input
+                name="callback_url"
+                type="text"
+                class="form-control"
+                id="callback_url"
+                placeholder="https://example.com/sso/login"/>
+            <div data-validate-for="callback_url"></div>
+        </div>
+
+        <button type="submit" class="btn btn-default">Get secret key</button>
+    </form>
+</div>
