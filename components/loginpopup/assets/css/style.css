@@ -47,10 +47,9 @@ label {
 input {
 	height: auto;
 	width: 100%;
-	padding: 1.3em;
-	flex-wrap: 1;
+	padding: 0.9em 1.1em;
 	border: 2px solid hsl(190deg 12% 60%);
-	line-height: 1.5;
+	line-height: 1em;
 	outline: 2px auto transparent;
 	transition: 0.2s ease-in-out;
 }
