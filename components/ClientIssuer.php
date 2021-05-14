@@ -25,7 +25,7 @@ class ClientIssuer extends ComponentBase
         $client->validate();
 
         if ($client->save()) {
-            $loginPage = $this->property('login_page');
+            $loginPage = $this->property('SSOLoginPage');
             $urlProvider = $this->pageUrl($loginPage, ['identifier' => base64_encode($client->name)]);
 
             return [
@@ -50,6 +50,6 @@ class ClientIssuer extends ComponentBase
 
     public function getSSOLoginPageOptions()
     {
-        return Page::sortBy('baseFileName')->lists('baseFileName', 'baseFileName');
+        return Page::sortBy('baseFileName')->lists('title', 'baseFileName');
     }
 }

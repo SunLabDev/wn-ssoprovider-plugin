@@ -8,7 +8,5 @@ columns:
         searchable: true
     name:
         label: sunlab.ssoprovider::lang.fields.name
-    domain:
-        label: sunlab.ssoprovider::lang.fields.domain
     callback_url:
         label: sunlab.ssoprovider::lang.fields.callback_url
