@@ -2,7 +2,7 @@
     "name": "sunlab/wn-ssoprovider-plugin",
     "type": "winter-plugin",
     "description": "SSO Provider plugin for Winter CMS",
-    "homepage": "https://github.com/SunLabDev/oc-ssoprovider-plugin",
+    "homepage": "https://github.com/SunLabDev/wn-ssoprovider-plugin",
     "keywords": ["winter cms", "winter", "plugin", "sso", "provider", "single sign on"],
     "license": "MIT",
     "authors": [
