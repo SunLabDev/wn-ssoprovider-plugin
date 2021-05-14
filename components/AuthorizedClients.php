@@ -6,6 +6,13 @@ use Winter\User\Facades\Auth;
 
 class AuthorizedClients extends ComponentBase
 {
+    public $user;
+
+    public function init()
+    {
+        $this->user = Auth::getUser();
+    }
+
     public function componentDetails()
     {
         return [
@@ -16,10 +23,9 @@ class AuthorizedClients extends ComponentBase
 
     public function onRevoke()
     {
-        $user = Auth::getUser();
         $idClient = post('id');
 
-        $user->sunlab_sso_authorizations()->detach($idClient);
+        $this->user->sunlab_sso_authorizations()->detach($idClient);
 
         Flash::success('Authorization has been revoked');
     }

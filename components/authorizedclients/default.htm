@@ -1,15 +1,20 @@
-{% if user and user.sunlab_sso_authorizations is not empty %}
-    <ul id="{{ __SELF__.id }}_authorizations">
+{% set user = __SELF__.user %}
+<div id="{{ __SELF__.id }}_authorizations">
+    {% if user and user.sunlab_sso_authorizations is not empty %}
+    <ul>
         {% for client in user.sunlab_sso_authorizations %}
         <li>
             {{ client.name }} can access your data
             <button data-request="onRevoke"
                     data-request-flash
-                    data-request-update="default: '#{{ __SELF__.id }}_authorizations'"
+                    data-request-update="'{{ __SELF__ }}::default': '#{{ __SELF__.id }}_authorizations'"
                     data-request-data="{id: {{ client.id }}}"
             >Revoke</button>
         </li>
         {% endfor %}
     </ul>
-    <p><i>Revoking access won't logout from the remote website. You'll need to manually logout from these website.</i></p>
-{% endif %}
+    <p><i>Revoking access won't log you out from the remote website. You'll need to manually logout from these websites.</i></p>
+    {% else %}
+        <p>You did not authorized any website to access your data yet.</p>
+    {% endif %}
+</div>
