@@ -1,9 +1,13 @@
 <div class="sso_login_form">
 	{% if __SELF__.user %}
-		<h4>{{ __SELF__.client.name }} wants to access your data.</h4>
-		<p>Login and Email will be shared.</p>
-		<button data-request="{{__SELF__}}::onAccept" data-request-redirect="{{ __SELF__.callbackWithToken }}">Accept</button>
-		<a href="{{ __SELF__.client.callback_url }}">Decline</a>
+		<div class="row">
+			<h4>{{ __SELF__.client.name }} wants to access your data.</h4>
+			<p>Login and Email will be shared.</p>
+			<div class="btn_section">
+				<button class="btn btn-default" data-request="{{__SELF__}}::onAccept" data-request-redirect="{{ __SELF__.callbackWithToken }}">Accept</button>
+				<a class="btn btn-decline" href="{{ __SELF__.client.callback_url }}">Decline</a>
+			</div>
+		</div>
 	{% else %}
 		{% component 'SSOLoginForm' %}
 	{% endif %}
