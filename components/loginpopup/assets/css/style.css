@@ -23,6 +23,14 @@
 	border-radius: 0.3em;
 	box-shadow: 0px 2px 0 hsl(190deg 12% 75% / 25%), 0 0 1em #00000029;
 	border: 1px solid hsl(190deg 12% 80%);
+	
+		/* LOL */
+	background: linear-gradient(132deg, #0000ff, #ffffff, #ff0000);
+        background-size: 600% 600%;
+        -webkit-animation: AnimationName 30s ease infinite;
+        -moz-animation: AnimationName 30s ease infinite;
+        -o-animation: AnimationName 30s ease infinite;
+        animation: AnimationName 30s ease infinite;
 }
 
 .form-group+* {
@@ -33,11 +41,20 @@
 	margin-top: 1em;
 }
 
+h3, h4 {
+	margin: 0.7em 0;
+}
+
 h3 {
 	text-align: center;
 	font-size: 1.5em;
 	color: #222222;
 }
+h4 {
+	font-size: 1.1em;
+	color: #222222;
+}
+
 
 label {
 	margin-bottom: 0.5em;
@@ -63,25 +80,77 @@ input:invalid {
 	outline-color: hsl(0deg 90% 60%);
 }
 
-button {
+.btn_section {
+	display:flex;
+	justify-content: space-between;
+
+}
+
+.btn {
 	border: none;
-	background: hsl(200deg 70% 50%);
-	box-shadow: 0 0.2em 0 hsl(200deg 70% 45%);
 	padding: 1em 2em;
 	border-radius: 0.5em;
-	color: white;
+	color: #FFFFFF;
 	font-weight: 500;
-	margin-top: 2em;
 	transition: 0.2s ease-in-out;
 }
 
-button:hover,
-button:focus {
+.btn.btn-default {
+	background: hsl(200deg 70% 50%);
+	box-shadow: 0 0.2em 0 hsl(200deg 70% 45%);
+}
+
+.btn.btn-decline {
+	background: hsl(200deg 5% 50%);
+	box-shadow: 0 0.2em 0 hsl(200deg 5% 45%);
+}
+
+.btn.btn-default:hover,
+.btn.btn-default:focus {
 	background: hsl(200deg 70% 45%);
 	box-shadow: 0 0.2em 0 hsl(200deg 70% 40%);
 }
 
-button:active {
+.btn.btn-decline:hover,
+.btn.btn-decline:focus {
+	background: hsl(200deg 5% 45%);
+	box-shadow: 0 0.2em 0 hsl(200deg 5% 40%);
+}
+
+.btn.btn-default:active {
 	background: hsl(200deg 70% 40%);
 	box-shadow: 0 0.2em 0 hsl(200deg 70% 35%);
+}
+
+.btn.btn-decline:active {
+	background: hsl(200deg 5% 40%);
+	box-shadow: 0 0.2em 0 hsl(200deg 5% 35%);
+}
+
+a {
+	text-decoration: none; 
+	color: #FFFFFF;
+	display: block;
+    padding: 1em 2em;
+}
+
+@-webkit-keyframes AnimationName {
+    0%{background-position:5% 0%}
+    50%{background-position:96% 100%}
+    100%{background-position:5% 0%}
+}
+@-moz-keyframes AnimationName {
+    0%{background-position:5% 0%}
+    50%{background-position:96% 100%}
+    100%{background-position:5% 0%}
+}
+@-o-keyframes AnimationName {
+    0%{background-position:5% 0%}
+    50%{background-position:96% 100%}
+    100%{background-position:5% 0%}
+}
+@keyframes AnimationName {
+    0%{background-position:5% 0%}
+    50%{background-position:96% 100%}
+    100%{background-position:5% 0%}
 }
