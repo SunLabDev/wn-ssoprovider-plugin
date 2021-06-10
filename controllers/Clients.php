@@ -32,6 +32,6 @@ class Clients extends Controller
         parent::__construct();
 
         BackendMenu::setContext('Winter.System', 'system', 'settings');
-        SettingsManager::setContext('SunLab.SSOProvider', 'settings');
+        SettingsManager::setContext('SunLab.SSOProvider', 'clients');
     }
 }

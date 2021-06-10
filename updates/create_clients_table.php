@@ -13,6 +13,7 @@ class CreateClientsTable extends Migration
             $table->increments('id');
             $table->timestamps();
             $table->string('name');
+            $table->string('host');
             $table->string('callback_url');
             $table->string('secret');
         });

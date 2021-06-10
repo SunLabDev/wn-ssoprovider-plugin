@@ -1,6 +1,7 @@
 <?php namespace SunLab\SSOProvider;
 
 use Backend;
+use SunLab\Ssoprovider\Models\Settings;
 use System\Classes\PluginBase;
 use System\Classes\SettingsManager;
 use Winter\User\Models\User;
@@ -61,12 +62,21 @@ class Plugin extends PluginBase
     public function registerSettings()
     {
         return [
-            'settings' => [
+            'clients' => [
                 'label'       => 'sunlab.ssoprovider::lang.settings.menu_label',
                 'description' => 'sunlab.ssoprovider::lang.settings.menu_description',
                 'category'    => SettingsManager::CATEGORY_SYSTEM,
                 'icon'        => 'icon-key',
                 'url'       => Backend::url('sunlab/ssoprovider/clients'),
+                'order'       => 500,
+                'permissions' => ['sunlab.ssoprovider.access_clients']
+            ],
+            'sso_settings' => [
+                'label'       => 'sunlab.ssoprovider::lang.settings.menu_label',
+                'description' => 'sunlab.ssoprovider::lang.settings.menu_description',
+                'category'    => SettingsManager::CATEGORY_SYSTEM,
+                'icon'        => 'icon-key',
+                'class'       => Settings::class,
                 'order'       => 500,
                 'permissions' => ['sunlab.ssoprovider.access_settings']
             ]
@@ -80,12 +90,14 @@ class Plugin extends PluginBase
      */
     public function registerPermissions()
     {
-        return []; // Remove this line to activate
-
         return [
-            'sunlab.ssoprovider.some_permission' => [
+            'sunlab.ssoprovider.access_settings' => [
                 'tab' => 'SSOProvider',
-                'label' => 'Some permission'
+                'label' => 'sunlab.ssoprovider::lang.permissions.access_settings'
+            ],
+            'sunlab.ssoprovider.access_clients' => [
+                'tab' => 'SSOProvider',
+                'label' => 'sunlab.ssoprovider::lang.permissions.access_clients'
             ],
         ];
     }

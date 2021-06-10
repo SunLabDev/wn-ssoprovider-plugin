@@ -1,0 +1,15 @@
+fields:
+    is_active:
+        label: sunlab.ssoprovider::lang.fields.is_active
+        type: switch
+        span: auto
+
+    accepts_new_clients:
+        label: sunlab.ssoprovider::lang.fields.accepts_new_clients
+        type: switch
+        span: auto
+
+    login_page:
+        label: sunlab.ssoprovider::lang.fields.login_page
+        type: dropdown
+        span: auto
