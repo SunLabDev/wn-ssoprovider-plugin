@@ -1,11 +1,20 @@
+{% set client = __SELF__.client %}
+
 <div class="sso_login_form">
 	{% if __SELF__.user %}
 		<div class="row">
-			<h4>{{ __SELF__.client.name }} wants to access your data.</h4>
+            {% if client.splash_image %}
+            <img src="{{ client.splash_image }}" alt="{{ client.name }} Logo" class="splash_image">
+            {% endif %}
+			<h4>{{ client.name }} wants to access your data.</h4>
 			<p>Login and Email will be shared.</p>
 			<div class="btn_section">
-				<button class="btn btn-default" data-request="{{__SELF__}}::onAccept" data-request-redirect="{{ __SELF__.callbackWithToken }}">Accept</button>
-				<a class="btn btn-decline" href="{{ __SELF__.client.callback_url }}">Decline</a>
+				<button type="button"
+                        class="btn btn-default"
+                        data-request="{{ __SELF__~'::onAccept' }}"
+                        data-request-redirect="{{ __SELF__.callbackWithToken }}"
+                >Accept</button>
+				<a class="btn btn-decline" href="{{ client.callback_url }}">Decline</a>
 			</div>
 		</div>
 	{% else %}

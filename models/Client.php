@@ -23,14 +23,15 @@ class Client extends Model
     /**
      * @var array Fillable fields
      */
-    protected $fillable = [];
+    protected $fillable = ['host'];
 
     /**
      * @var array Validation rules for attributes
      */
     public $rules = [
-        'name' => 'required',
-        'callback_url' => 'required|url'
+        'host' => 'required|url',
+        'callback_url' => 'required|url',
+        'token_url_param' => 'required'
     ];
 
     /**

@@ -2,124 +2,129 @@
 @import url('https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.css');
 
 .sso_login_form * {
-	box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 .sso_login_form {
-	min-height: 100vh;
-	background: rgb(228, 233, 234);
-	font-size: 1em;
-	display: flex;
-	font-family: 'Roboto', sans-serif;
-	color: #444444;
+    min-height: 100vh;
+    background: rgb(228, 233, 234);
+    font-size: 1em;
+    display: flex;
+    font-family: 'Roboto', sans-serif;
+    color: #444444;
 }
 
 .row {
-	width: clamp(350px, 50%, 450px);
-	margin: 0 auto;
-	padding: 1em;
-	background: white;
-	align-self: center;
-	border-radius: 0.3em;
-	box-shadow: 0px 2px 0 hsl(190deg 12% 75% / 25%), 0 0 1em #00000029;
-	border: 1px solid hsl(190deg 12% 80%);
+    width: clamp(350px, 50%, 450px);
+    margin: 0 auto;
+    padding: 1em;
+    background: white;
+    align-self: center;
+    border-radius: 0.3em;
+    box-shadow: 0px 2px 0 hsl(190deg 12% 75% / 25%), 0 0 1em #00000029;
+    border: 1px solid hsl(190deg 12% 80%);
 }
 
 .form-group+* {
-	margin-top: 1em;
+    margin-top: 1em;
 }
 
 .form-group+button {
-	margin-top: 1.5em;
+    margin-top: 1.5em;
 }
 
 h3, h4 {
-	margin: 0.7em 0;
-	color: #222222;
+    margin: 0.7em 0;
+    color: #222222;
 }
 
 h3 {
-	text-align: center;
-	font-size: 1.5em;
+    text-align: center;
+    font-size: 1.5em;
 }
 h4 {
-	font-size: 1.1em;
+    font-size: 1.1em;
 }
 
 
 label {
-	margin-bottom: 0.5em;
-	display: block;
+    margin-bottom: 0.5em;
+    display: block;
 }
 
 input {
-	height: auto;
-	width: 100%;
-	padding: 0.9em 1.1em;
-	border: 2px solid hsl(190deg 12% 60%);
-	line-height: 1em;
-	outline: 2px auto transparent;
-	transition: 0.2s ease-in-out;
+    height: auto;
+    width: 100%;
+    padding: 0.9em 1.1em;
+    border: 2px solid hsl(190deg 12% 60%);
+    line-height: 1em;
+    outline: 2px auto transparent;
+    transition: 0.2s ease-in-out;
 }
 
 input:focus,
 input:focus-visible {
-	outline-color: hsla(190deg 12% 55% / 75%);
+    outline-color: hsla(190deg 12% 55% / 75%);
 }
 
 input:invalid {
-	outline-color: hsl(0deg 90% 60%);
+    outline-color: hsl(0deg 90% 60%);
 }
 
 .btn_section {
-	display:flex;
-	justify-content: space-between;
+    display:flex;
+    justify-content: space-between;
 }
 
 .btn {
-	border: none;
-	padding: 1em 2em;
-	border-radius: 0.5em;
-	color: #FFFFFF;
-	font-weight: 500;
-	transition: 0.2s ease-in-out;
+    border: none;
+    padding: 1em 2em;
+    border-radius: 0.5em;
+    color: #FFFFFF;
+    font-weight: 500;
+    transition: 0.2s ease-in-out;
 }
 
 .btn.btn-default {
-	background: hsl(200deg 70% 50%);
-	box-shadow: 0 0.2em 0 hsl(200deg 70% 45%);
+    background: hsl(200deg 70% 50%);
+    box-shadow: 0 0.2em 0 hsl(200deg 70% 45%);
 }
 
 .btn.btn-decline {
-	background: hsl(200deg 5% 50%);
-	box-shadow: 0 0.2em 0 hsl(200deg 5% 45%);
+    background: hsl(200deg 5% 50%);
+    box-shadow: 0 0.2em 0 hsl(200deg 5% 45%);
 }
 
 .btn.btn-default:hover,
 .btn.btn-default:focus {
-	background: hsl(200deg 70% 45%);
-	box-shadow: 0 0.2em 0 hsl(200deg 70% 40%);
+    background: hsl(200deg 70% 45%);
+    box-shadow: 0 0.2em 0 hsl(200deg 70% 40%);
 }
 
 .btn.btn-decline:hover,
 .btn.btn-decline:focus {
-	background: hsl(200deg 5% 45%);
-	box-shadow: 0 0.2em 0 hsl(200deg 5% 40%);
+    background: hsl(200deg 5% 45%);
+    box-shadow: 0 0.2em 0 hsl(200deg 5% 40%);
 }
 
 .btn.btn-default:active {
-	background: hsl(200deg 70% 40%);
-	box-shadow: 0 0.2em 0 hsl(200deg 70% 35%);
+    background: hsl(200deg 70% 40%);
+    box-shadow: 0 0.2em 0 hsl(200deg 70% 35%);
 }
 
 .btn.btn-decline:active {
-	background: hsl(200deg 5% 40%);
-	box-shadow: 0 0.2em 0 hsl(200deg 5% 35%);
+    background: hsl(200deg 5% 40%);
+    box-shadow: 0 0.2em 0 hsl(200deg 5% 35%);
 }
 
 a {
-	text-decoration: none; 
-	color: #FFFFFF;
-	display: block;
+    text-decoration: none;
+    color: #FFFFFF;
+    display: block;
     padding: 1em 2em;
+}
+
+.splash_image {
+    max-width: 100%;
+    max-height: 500px;
 }
