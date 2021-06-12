@@ -2,6 +2,8 @@
 
 use Cms\Classes\ComponentBase;
 use SunLab\SSOProvider\Models\Client;
+use SunLab\Ssoprovider\Models\Settings;
+use Winter\Storm\Support\Facades\Url;
 use Winter\User\Components\Account;
 use Winter\User\Facades\Auth;
 use Firebase\JWT\JWT;
@@ -17,24 +19,31 @@ class LoginPopup extends ComponentBase
     public function init()
     {
         // Search for a SSO Client corresponding to the identifier
-        $encodedName = $this->property('identifier');
-        $identifier = base64_decode($encodedName);
+        $encodedHost = $this->property('identifier');
+        $identifier = base64_decode($encodedHost);
         $this->client = Client::query()
-            ->where('name', $identifier)
+            ->where('host', $identifier)
             ->firstOrFail();
 
         // Abort if not a valid client
         if (!$this->client) {
-            App::abort(401, 'Provider details not found');
+            abort(401, 'Provider details not found');
         }
 
+        // If the user is logged-in, check for authorization
         if (($this->user = Auth::getUser())) {
+            $callbackUrl = $this->getFullCallbackUrl();
+
+            // If the user already authorize this client, return directly
             if ($this->user->authorizeSSO($this->client)) {
-                return $this->returnToken();
+                abort(redirect($callbackUrl));
             }
-            $token = $this->getToken();
-            $this->callbackWithToken = $this->client->callback_url . '/' . $token;
-        } else {
+
+            $this->callbackWithToken = $callbackUrl;
+        }
+
+        // Else display login/register form
+        else {
             $this->addComponent(
                 Account::class,
                 'SSOLoginForm',
@@ -45,7 +54,7 @@ class LoginPopup extends ComponentBase
 
     public function onRun()
     {
-	$this->addCss('components/loginpopup/assets/css/style.css');
+        $this->addCss('components/loginpopup/assets/css/style.css');
     }
 
     public function onAccept()
@@ -72,24 +81,22 @@ class LoginPopup extends ComponentBase
         ];
     }
 
-    protected function returnToken($redirect = false)
-    {
-        $token = $this->getToken();
-
-        abort(redirect($this->client->callback_url . '/' . $token));
-    }
-
-    protected function getToken()
+    protected function getFullCallbackUrl()
     {
         $issuedAt = time();
         $expirationTime = $issuedAt + self::SECONDS_VALID;
 
-        return JWT::encode([
+        $token = JWT::encode([
             'name' => $this->user->name,
             'username' => $this->user->username,
             'email' => $this->user->email,
             'iat' => $issuedAt,
             'exp' => $expirationTime,
         ], $this->client->secret, 'HS256');
+
+        return Url::buildUrl([
+            'host' => $this->client->callback_url,
+            'query' => sprintf('%s=%s', $this->client->token_url_param, $token)
+        ]);
     }
 }

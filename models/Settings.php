@@ -24,7 +24,8 @@ class Settings extends Model
      * @var array Validation rules for attributes
      */
     public $rules = [
-        'login_page' => 'required'
+        'login_page' => 'required',
+        'token_url_param' => 'required',
     ];
 
     public function getLoginPageOptions()

@@ -3,9 +3,6 @@
 # ===================================
 
 fields:
-    name:
-        label: sunlab.ssoprovider::lang.fields.name
-
     callback_url:
         label: sunlab.ssoprovider::lang.fields.callback_url
 

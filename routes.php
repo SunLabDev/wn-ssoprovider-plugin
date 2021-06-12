@@ -7,41 +7,38 @@ Route::put('sunlab_sso/client', static function () {
     $settings = Settings::instance();
 
     if (!$settings->isConfigured()) {
-        return response()->json([
-            'err_n' => 1,
-            'reason' => 'SSO Provider is not configured yet.'
-        ], 406);
+        return response()->json(['err_n' => 1], 406);
     }
 
     if (!$settings->accepts_new_clients) {
-        return response()->json([
-            'err_n' => 2,
-            'reason' => "SSO Provider doesn't accept new clients."
-        ], 406);
+        return response()->json(['err_n' => 2], 406);
     }
 
-    $client = new Client;
-    $client->name = post('name');
-    $client->callback_url = post('callback_url');
+    $callbackUrl = post('callback_url');
+    $parsedUrl = parse_url($callbackUrl);
+    $clientHost = sprintf('%s://%s', $parsedUrl['scheme'], $parsedUrl['host']);
+
+    $client = Client::query()->firstOrNew(['host' => $clientHost]);
+    $client->callback_url = $callbackUrl;
+    $client->name = post('name', $clientHost);
+    $client->splash_image = post('splash_image');
+    $client->token_url_param = $settings->token_url_param;
 
     try {
-//        $client->validate();
         $client->saveOrFail();
 
         $loginPage = $settings->login_page;
         $urlProvider = (new \Cms\Classes\Controller)->pageUrl(
             $loginPage,
-            ['identifier' => base64_encode($client->name)]
+            ['identifier' => base64_encode($clientHost)]
         );
 
         return response()->json([
             'provider_url' => $urlProvider,
-            'secret' => $client->secret
+            'secret' => $client->secret,
+            'token_url_param' => $settings->token_url_param
         ]);
     } catch (Throwable $e) {
-        return response()->json([
-            'err_n' => 2,
-            'reason' => $e->getMessage()
-        ]);
+        return response()->json(['reason' => $e->getMessage()]);
     }
 });

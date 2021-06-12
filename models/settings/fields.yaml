@@ -13,3 +13,8 @@ fields:
         label: sunlab.ssoprovider::lang.fields.login_page
         type: dropdown
         span: auto
+
+    token_url_param:
+        label: sunlab.ssoprovider::lang.fields.token_url_param
+        default: user_token
+        span: auto

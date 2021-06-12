@@ -6,7 +6,9 @@ columns:
     id:
         label: ID
         searchable: true
-    name:
-        label: sunlab.ssoprovider::lang.fields.name
+
+    host:
+        label: sunlab.ssoprovider::lang.fields.host
+
     callback_url:
         label: sunlab.ssoprovider::lang.fields.callback_url
