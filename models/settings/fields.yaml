@@ -1,20 +1,18 @@
 fields:
-    is_active:
-        label: sunlab.ssoprovider::lang.fields.is_active
-        type: switch
-        span: auto
-
     accepts_new_clients:
         label: sunlab.ssoprovider::lang.fields.accepts_new_clients
+        comment: sunlab.ssoprovider::lang.fields.accepts_new_clients_comment
         type: switch
         span: auto
 
     login_page:
         label: sunlab.ssoprovider::lang.fields.login_page
+        comment: sunlab.ssoprovider::lang.fields.login_page_comment
         type: dropdown
         span: auto
 
     token_url_param:
         label: sunlab.ssoprovider::lang.fields.token_url_param
+        comment: sunlab.ssoprovider::lang.fields.token_url_param_comment
         default: user_token
         span: auto

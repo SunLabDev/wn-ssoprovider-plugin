@@ -16,8 +16,8 @@ class AuthorizedClients extends ComponentBase
     public function componentDetails()
     {
         return [
-            'name'        => 'AuthorizedClients Component',
-            'description' => 'No description provided yet...'
+            'name' => 'sunlab.ssoprovider::lang.components.authorized_clients.name',
+            'description' => 'sunlab.ssoprovider::lang.components.authorized_clients.desc'
         ];
     }
 
@@ -27,6 +27,6 @@ class AuthorizedClients extends ComponentBase
 
         $this->user->sunlab_sso_authorizations()->detach($idClient);
 
-        Flash::success('Authorization has been revoked');
+        Flash::success(__('sunlab.ssoprovider::lang.authorization_revoked'));
     }
 }

@@ -1,12 +1,30 @@
-# ===================================
-#  Form Field Definitions
-# ===================================
-
 fields:
+    token_url_param:
+        label: sunlab.ssoprovider::lang.fields.token_url_param
+        span: auto
+
     callback_url:
         label: sunlab.ssoprovider::lang.fields.callback_url
+        span: auto
 
     secret:
         label: sunlab.ssoprovider::lang.fields.secret
+        span: auto
         type: sensitive
         disabled: true
+
+    _design_section:
+        type: section
+        label: sunlab.ssoprovider::lang.fields.design_section
+
+    name:
+        label: sunlab.ssoprovider::lang.fields.name
+        comment: sunlab.ssoprovider::lang.fields.name_comment
+        span: left
+
+    splash_image:
+        label: sunlab.ssoprovider::lang.fields.splash_image
+        comment: sunlab.ssoprovider::lang.fields.splash_image_comment
+        type: partial
+        path: ~/plugins/sunlab/ssoprovider/models/client/client_splash_image.htm
+        span: right

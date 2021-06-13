@@ -3,7 +3,6 @@
 use Backend;
 use SunLab\Ssoprovider\Models\Settings;
 use System\Classes\PluginBase;
-use System\Classes\SettingsManager;
 use Winter\User\Models\User;
 
 /**
@@ -19,10 +18,10 @@ class Plugin extends PluginBase
     public function pluginDetails()
     {
         return [
-            'name'        => 'SSOProvider',
-            'description' => 'No description provided yet...',
+            'name'        => 'sunlab.ssoprovider::lang.plugin.name',
+            'description' => 'sunlab.ssoprovider::lang.plugin.desc',
             'author'      => 'SunLab',
-            'icon'        => 'icon-leaf'
+            'icon'        => 'icon-key'
         ];
     }
 
@@ -39,7 +38,7 @@ class Plugin extends PluginBase
                 'table' => 'sunlab_ssoprovider_client_user'
             ];
 
-            $user->addDynamicMethod('authorizeSSO', static function ($client) use ($user) {
+            $user->addDynamicMethod('authorizesSSO', static function ($client) use ($user) {
                 return $user->sunlab_sso_authorizations()->where('client_id', $client->id)->exists();
             });
         });
@@ -54,8 +53,7 @@ class Plugin extends PluginBase
     {
         return [
             \SunLab\SSOProvider\Components\LoginPopup::class => 'SSOLoginPopup',
-            \SunLab\SSOProvider\Components\AuthorizedClients::class => 'SSOAuthorizedClients',
-            \SunLab\SSOProvider\Components\ClientIssuer::class => 'SSOClientIssuer',
+            \SunLab\SSOProvider\Components\AuthorizedClients::class => 'SSOAuthorizedClients'
         ];
     }
 
@@ -63,18 +61,18 @@ class Plugin extends PluginBase
     {
         return [
             'clients' => [
-                'label'       => 'sunlab.ssoprovider::lang.settings.menu_label',
-                'description' => 'sunlab.ssoprovider::lang.settings.menu_description',
-                'category'    => SettingsManager::CATEGORY_SYSTEM,
-                'icon'        => 'icon-key',
+                'label'       => 'sunlab.ssoprovider::lang.settings.clients_label',
+                'description' => 'sunlab.ssoprovider::lang.settings.clients_desc',
+                'category'    => 'sunlab.ssoprovider::lang.plugin.name',
+                'icon'        => 'icon-address-book-o',
                 'url'       => Backend::url('sunlab/ssoprovider/clients'),
                 'order'       => 500,
                 'permissions' => ['sunlab.ssoprovider.access_clients']
             ],
             'sso_settings' => [
-                'label'       => 'sunlab.ssoprovider::lang.settings.menu_label',
-                'description' => 'sunlab.ssoprovider::lang.settings.menu_description',
-                'category'    => SettingsManager::CATEGORY_SYSTEM,
+                'label'       => 'sunlab.ssoprovider::lang.settings.general_label',
+                'description' => 'sunlab.ssoprovider::lang.settings.general_desc',
+                'category'    => 'sunlab.ssoprovider::lang.plugin.name',
                 'icon'        => 'icon-key',
                 'class'       => Settings::class,
                 'order'       => 500,
@@ -92,11 +90,11 @@ class Plugin extends PluginBase
     {
         return [
             'sunlab.ssoprovider.access_settings' => [
-                'tab' => 'SSOProvider',
+                'tab' => 'sunlab.ssoprovider::lang.plugin.name',
                 'label' => 'sunlab.ssoprovider::lang.permissions.access_settings'
             ],
             'sunlab.ssoprovider.access_clients' => [
-                'tab' => 'SSOProvider',
+                'tab' => 'sunlab.ssoprovider::lang.plugin.name',
                 'label' => 'sunlab.ssoprovider::lang.permissions.access_clients'
             ],
         ];

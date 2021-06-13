@@ -1,10 +1,6 @@
-# ===================================
-#  List Column Definitions
-# ===================================
-
 columns:
-    id:
-        label: ID
+    name:
+        label: sunlab.ssoprovider::lang.fields.name
         searchable: true
 
     host:
@@ -12,3 +8,10 @@ columns:
 
     callback_url:
         label: sunlab.ssoprovider::lang.fields.callback_url
+
+    sunlab_sso_authorizations:
+        label: sunlab.ssoprovider::lang.fields.nb_authorizations
+        relation: sunlab_sso_authorizations
+        useRelationCount: true
+        align: center
+        width: 10%

@@ -2,7 +2,6 @@
 
 use Cms\Classes\ComponentBase;
 use SunLab\SSOProvider\Models\Client;
-use SunLab\Ssoprovider\Models\Settings;
 use Winter\Storm\Support\Facades\Url;
 use Winter\User\Components\Account;
 use Winter\User\Facades\Auth;
@@ -25,7 +24,7 @@ class LoginPopup extends ComponentBase
             ->where('host', $identifier)
             ->firstOrFail();
 
-        // Abort if not a valid client
+        // Abort if we didn't found a valid client
         if (!$this->client) {
             abort(401, 'Provider details not found');
         }
@@ -35,7 +34,7 @@ class LoginPopup extends ComponentBase
             $callbackUrl = $this->getFullCallbackUrl();
 
             // If the user already authorize this client, return directly
-            if ($this->user->authorizeSSO($this->client)) {
+            if ($this->user->authorizesSSO($this->client)) {
                 abort(redirect($callbackUrl));
             }
 
@@ -65,8 +64,8 @@ class LoginPopup extends ComponentBase
     public function componentDetails()
     {
         return [
-            'name' => 'LoginPopup Component',
-            'description' => 'No description provided yet...'
+            'name' => 'sunlab.ssoprovider::lang.components.login_popup.name',
+            'description' => 'sunlab.ssoprovider::lang.components.login_popup.desc'
         ];
     }
 

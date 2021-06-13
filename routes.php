@@ -14,10 +14,13 @@ Route::put('sunlab_sso/client', static function () {
         return response()->json(['err_n' => 2], 406);
     }
 
+    // Generates the full callback url, including the token
     $callbackUrl = post('callback_url');
     $parsedUrl = parse_url($callbackUrl);
     $clientHost = sprintf('%s://%s', $parsedUrl['scheme'], $parsedUrl['host']);
 
+    // If the client is already registered only refresh its data
+    // Else create a new client
     $client = Client::query()->firstOrNew(['host' => $clientHost]);
     $client->callback_url = $callbackUrl;
     $client->name = post('name', $clientHost);
@@ -33,6 +36,7 @@ Route::put('sunlab_sso/client', static function () {
             ['identifier' => base64_encode($clientHost)]
         );
 
+        // Returns all the data needed by the SSO Client
         return response()->json([
             'provider_url' => $urlProvider,
             'secret' => $client->secret,
