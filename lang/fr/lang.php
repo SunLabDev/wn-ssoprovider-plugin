@@ -1,14 +1,14 @@
 <?php return [
     'plugin' => [
         'name' => 'Fournisseur SSO',
-        'desc' => "Permet à votre site de partagez sa base d'utilisateurs."
+        'desc' => "Permet à votre site de partager sa base d'utilisateurs."
     ],
 
     'settings' => [
         'general_label' => 'Fournisseur SSO',
         'general_desc' => 'Configurer le comportement.',
         'clients_label' => 'Clients SSO',
-        'clients_desc' => 'Visualisez et modifier les clients.',
+        'clients_desc' => 'Visualiser et modifier les clients.',
     ],
 
     'permissions' => [
@@ -29,13 +29,13 @@
 
     'fields' => [
         'accepts_new_clients' => 'Accepte des nouveaux clients',
-        'accepts_new_clients_comment' => 'Les clés clients seront générés automatiquement.',
+        'accepts_new_clients_comment' => 'Les clés clients seront générées automatiquement.',
         'login_page' => 'Page de connexion',
         'login_page_comment' => 'La page qui affiche le composant Pop-up de connexion.',
         'token_url_param' => "Paramètre du token dans l'url",
         'token_url_param_comment' => 'Transmis par le fournisseur.',
         'secret' => 'Clé secrète',
-        'secret_comment' => 'Filled by the provider',
+        'secret_comment' => 'Rempli par le fournisseur',
         'design_section' => "Apparence de la page d'autorisation",
         'name' => 'Nom',
         'name_comment' => 'Sera affiché comme ceci: {{ name }} veut accéder à vos informations.',
@@ -46,5 +46,5 @@
         'nb_authorizations' => "Nb d'utilisateurs autorisant"
     ],
 
-    'authorization_revoked' => "L'autorisation as bien été révoquée."
+    'authorization_revoked' => "L'autorisation a bien été révoquée."
 ];

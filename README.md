@@ -1,6 +1,6 @@
 ## SSO Provider
 This plugin allows your website to act as an SSO Provider:
-- It will issue keys to the SSO Clients websites to access your users base
+- It will issue keys to the SSO Clients websites to access your userbase.
 - It will allow your users to login on the SSO Clients websites without creating an account.
 > Note: This plugin is intended to be used with [this SSO Client](https://github.com/sunlabdev/wn-ssoclient-plugin)
 

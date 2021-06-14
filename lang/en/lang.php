@@ -1,7 +1,7 @@
 <?php return [
     'plugin' => [
         'name' => 'SSO Provider',
-        'desc' => 'Allows your website securely share its users base.'
+        'desc' => 'Allows your website securely share its userbase.'
     ],
 
     'settings' => [

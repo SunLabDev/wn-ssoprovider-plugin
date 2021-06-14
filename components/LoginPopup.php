@@ -24,7 +24,7 @@ class LoginPopup extends ComponentBase
             ->where('host', $identifier)
             ->firstOrFail();
 
-        // Abort if we didn't found a valid client
+        // Abort if we didn't find a valid client
         if (!$this->client) {
             abort(401, 'Provider details not found');
         }
@@ -33,7 +33,7 @@ class LoginPopup extends ComponentBase
         if (($this->user = Auth::getUser())) {
             $callbackUrl = $this->getFullCallbackUrl();
 
-            // If the user already authorize this client, return directly
+            // If the user already authorizes this client, return directly
             if ($this->user->authorizesSSO($this->client)) {
                 abort(redirect($callbackUrl));
             }
