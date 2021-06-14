@@ -20,10 +20,19 @@
         'login_popup' => [
             'name' => 'Pop-up de connexion',
             'desc' => "Affiche la pop-up de connexion et d'autorisation.",
+            'accept' => 'Accepter',
+            'decline' => 'Refuser',
+            'access_request' => ':name veut accéder vos données.',
+            'shared_info' => 'Votre nom, usager et email vont être partagés.',
+
         ],
         'authorized_clients' => [
             'name' => 'Clients autorisés',
             'desc' => 'Permet à vos utilisateurs de révoquer leurs autorisations.',
+            'access_granted' => ':name peut accéder à vos données',
+            'revoke_warning' => "Révoquer l'accès ne fermera pas les sessions distantes. Vous devez vous déconnecter manuellement.",
+            'no_authorization' => "Aucun site web n'a présentement l'autorisation d'accéder à vos données.",
+
         ]
     ],
 

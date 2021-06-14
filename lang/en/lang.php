@@ -29,8 +29,8 @@
             'name' => 'Authorized clients',
             'desc' => 'Gives to your users the ability to revoke an authorization.',
             'access_granted' => ':name can access your data',
-            'revoke_warning' => "Revoking access won't log you out from the remote website. You'll need to manually logout from these websites.",
-            'no_authorization' => 'You did not authorize any website to access your data yet.',
+            'revoke_warning' => "Revoking access won't log you out from the remote websites. You still need to manually logout from these websites.",
+            'no_authorization' => 'You did not yet authorize any website to access your data.',
         ]
     ],
 
