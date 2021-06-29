@@ -19,7 +19,8 @@
     "require": {
         "php": ">=7.0",
         "composer/installers": "~1.0",
-        "firebase/php-jwt": "^5.2"
+        "firebase/php-jwt": "^5.2",
+	    "winter/wn-user-plugin": "dev-main"
     },
     "extra": {
         "installer-name": "ssoprovider"
