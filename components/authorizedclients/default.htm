@@ -4,7 +4,7 @@
     <ul>
         {% for client in user.sunlab_sso_authorizations %}
         <li>
-            {{ client.name }} can access your data
+            {{ 'sunlab.ssoprovider::lang.components.authorized_clients.access_granted' | trans({name: client.name})
             <button data-request="onRevoke"
                     data-request-flash
                     data-request-update="'{{ __SELF__ }}::default': '#{{ __SELF__.id }}_authorizations'"
@@ -13,8 +13,8 @@
         </li>
         {% endfor %}
     </ul>
-    <p><i>Revoking access won't log you out from the remote website. You'll need to manually logout from these websites.</i></p>
+    <p><i>{{ 'sunlab.ssoprovider::lang.components.authorized_clients.revoke_warning' | trans }}</i></p>
     {% else %}
-        <p>You did not authorized any website to access your data yet.</p>
+    <p>{{ 'sunlab.ssoprovider::lang.components.authorized_clients.no_authorization' | trans }}</p>
     {% endif %}
 </div>

@@ -6,15 +6,15 @@
             {% if client.splash_image %}
             <img src="{{ client.splash_image }}" alt="{{ client.name }} Logo" class="splash_image">
             {% endif %}
-			<h4>{{ client.name }} wants to access your data.</h4>
-			<p>Login and Email will be shared.</p>
+            <h4>{{ 'sunlab.ssoprovider::lang.components.login_popup.access_request' | trans({name: client.name}) }}</h4>
+            <p>{{ 'sunlab.ssoprovider::lang.components.login_popup.shared_info' | trans }}</p>
 			<div class="btn_section">
 				<button type="button"
                         class="btn btn-default"
                         data-request="{{ __SELF__~'::onAccept' }}"
                         data-request-redirect="{{ __SELF__.callbackWithToken }}"
-                >Accept</button>
-				<a class="btn btn-decline" href="{{ client.callback_url }}">Decline</a>
+                >{{ 'sunlab.ssoprovider::lang.components.login_popup.accept' | trans }}</button>
+            <a class="btn btn-decline" href="{{ client.callback_url }}">{{ 'sunlab.ssoprovider::lang.components.login_popup.decline' | trans }}</a>
 			</div>
 		</div>
 	{% else %}
